@@ -17,4 +17,11 @@ steps:
       release: wpdemo 
       chart_version: ${DRONE_COMMIT_SHA:0:8}-prod
       namespace: wpdemo
-
+    environment:
+      KUBE_API_SERVER:
+        from_secret: kubernetes_server
+      KUBE_CERTIFICATE:
+        from_secret: kubernetes_certificate
+      KUBE_TOKEN:
+        from_secret: kubernetes_token
+      KUBE_SERVICE_ACCOUNT: default
